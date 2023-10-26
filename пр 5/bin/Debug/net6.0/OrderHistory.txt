@@ -1,0 +1,9 @@
+Order placed on: 25.10.2023 21:44:03
+Form: Heart-Shaped, Size: Medium, Flavor: Strawberry, Quantity: 3, Glaze: Vanilla, Decoration: Fruit
+
+Order placed on: 25.10.2023 21:44:13
+Form: Round, Size: Small, Flavor: Vanilla, Quantity: 0, Glaze: Chocolate, Decoration: Sprinkles
+
+Order placed on: 25.10.2023 21:44:19
+Form: Round, Size: Small, Flavor: Vanilla, Quantity: 0, Glaze: Chocolate, Decoration: Sprinkles
+

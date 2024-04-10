@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="RightAnswerTable">
+    <Key>
+      <PropertyRef Name="ID_RA" />
+    </Key>
+    <Property Name="ID_RA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RightAnswer" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Test">
+    <Key>
+      <PropertyRef Name="ID_Test" />
+    </Key>
+    <Property Name="ID_Test" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_test" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Desc_test" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FirstAnswer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SecondAnswer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ThirdAnswer" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RA_ID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Test__RA_ID__440B1D61">
+    <End Role="RightAnswerTable" Type="Self.RightAnswerTable" Multiplicity="0..1" />
+    <End Role="Test" Type="Self.Test" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RightAnswerTable">
+        <PropertyRef Name="ID_RA" />
+      </Principal>
+      <Dependent Role="Test">
+        <PropertyRef Name="RA_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище ModelContainer">
+    <EntitySet Name="RightAnswerTable" EntityType="Self.RightAnswerTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Test__RA_ID__440B1D61" Association="Self.FK__Test__RA_ID__440B1D61">
+      <End Role="RightAnswerTable" EntitySet="RightAnswerTable" />
+      <End Role="Test" EntitySet="Test" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

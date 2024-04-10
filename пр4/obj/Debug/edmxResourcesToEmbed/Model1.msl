@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities3">
+    <EntitySetMapping Name="RightAnswerTable">
+      <EntityTypeMapping TypeName="Model.RightAnswerTable">
+        <MappingFragment StoreEntitySet="RightAnswerTable">
+          <ScalarProperty Name="ID_RA" ColumnName="ID_RA" />
+          <ScalarProperty Name="RightAnswer" ColumnName="RightAnswer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Test">
+      <EntityTypeMapping TypeName="Model.Test">
+        <MappingFragment StoreEntitySet="Test">
+          <ScalarProperty Name="ID_Test" ColumnName="ID_Test" />
+          <ScalarProperty Name="Name_test" ColumnName="Name_test" />
+          <ScalarProperty Name="Desc_test" ColumnName="Desc_test" />
+          <ScalarProperty Name="FirstAnswer" ColumnName="FirstAnswer" />
+          <ScalarProperty Name="SecondAnswer" ColumnName="SecondAnswer" />
+          <ScalarProperty Name="ThirdAnswer" ColumnName="ThirdAnswer" />
+          <ScalarProperty Name="RA_ID" ColumnName="RA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

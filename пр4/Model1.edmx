@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="RightAnswerTable">
+          <Key>
+            <PropertyRef Name="ID_RA" />
+          </Key>
+          <Property Name="ID_RA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RightAnswer" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="ID_Test" />
+          </Key>
+          <Property Name="ID_Test" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_test" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Desc_test" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstAnswer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SecondAnswer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ThirdAnswer" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RA_ID" Type="int" />
+        </EntityType>
+        <Association Name="FK__Test__RA_ID__440B1D61">
+          <End Role="RightAnswerTable" Type="Self.RightAnswerTable" Multiplicity="0..1" />
+          <End Role="Test" Type="Self.Test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RightAnswerTable">
+              <PropertyRef Name="ID_RA" />
+            </Principal>
+            <Dependent Role="Test">
+              <PropertyRef Name="RA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="RightAnswerTable" EntityType="Self.RightAnswerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Test" EntityType="Self.Test" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Test__RA_ID__440B1D61" Association="Self.FK__Test__RA_ID__440B1D61">
+            <End Role="RightAnswerTable" EntitySet="RightAnswerTable" />
+            <End Role="Test" EntitySet="Test" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RightAnswerTable">
+          <Key>
+            <PropertyRef Name="ID_RA" />
+          </Key>
+          <Property Name="ID_RA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RightAnswer" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Test" Relationship="Self.FK__Test__RA_ID__440B1D61" FromRole="RightAnswerTable" ToRole="Test" />
+        </EntityType>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="ID_Test" />
+          </Key>
+          <Property Name="ID_Test" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_test" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Desc_test" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FirstAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SecondAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ThirdAnswer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RA_ID" Type="Int32" />
+          <NavigationProperty Name="RightAnswerTable" Relationship="Self.FK__Test__RA_ID__440B1D61" FromRole="Test" ToRole="RightAnswerTable" />
+        </EntityType>
+        <Association Name="FK__Test__RA_ID__440B1D61">
+          <End Role="RightAnswerTable" Type="Self.RightAnswerTable" Multiplicity="0..1" />
+          <End Role="Test" Type="Self.Test" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RightAnswerTable">
+              <PropertyRef Name="ID_RA" />
+            </Principal>
+            <Dependent Role="Test">
+              <PropertyRef Name="RA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RightAnswerTable" EntityType="Self.RightAnswerTable" />
+          <EntitySet Name="Test" EntityType="Self.Test" />
+          <AssociationSet Name="FK__Test__RA_ID__440B1D61" Association="Self.FK__Test__RA_ID__440B1D61">
+            <End Role="RightAnswerTable" EntitySet="RightAnswerTable" />
+            <End Role="Test" EntitySet="Test" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities3">
+          <EntitySetMapping Name="RightAnswerTable">
+            <EntityTypeMapping TypeName="Model.RightAnswerTable">
+              <MappingFragment StoreEntitySet="RightAnswerTable">
+                <ScalarProperty Name="ID_RA" ColumnName="ID_RA" />
+                <ScalarProperty Name="RightAnswer" ColumnName="RightAnswer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Test">
+            <EntityTypeMapping TypeName="Model.Test">
+              <MappingFragment StoreEntitySet="Test">
+                <ScalarProperty Name="ID_Test" ColumnName="ID_Test" />
+                <ScalarProperty Name="Name_test" ColumnName="Name_test" />
+                <ScalarProperty Name="Desc_test" ColumnName="Desc_test" />
+                <ScalarProperty Name="FirstAnswer" ColumnName="FirstAnswer" />
+                <ScalarProperty Name="SecondAnswer" ColumnName="SecondAnswer" />
+                <ScalarProperty Name="ThirdAnswer" ColumnName="ThirdAnswer" />
+                <ScalarProperty Name="RA_ID" ColumnName="RA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
